@@ -1,0 +1,587 @@
+
+                        <!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <style>
+                body {
+                  background-color: white; /* Ensure the iframe has a white background */
+                }
+    
+                
+              </style>
+                        </head>
+                        <body>
+                            <!DOCTYPE html>
+<html lang="pt-PT">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabela de Preços</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      color: #fff;
+      background: #111;
+    }
+
+    header {
+      background: transparent;
+      color: #fff;
+      padding: 0.5rem 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    /* Fundo cinza ao scrollar */
+    header.scrolled {
+      background: #1a1a1a;
+    }
+
+    /* Linha só aparece no fundo sólido */
+    header.with-border {
+      border-bottom: 1px solid #444;
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      margin: 0 auto;
+      padding: 0 2rem;
+      min-height: 56px;
+    }
+
+    .header-container nav {
+      margin-left: auto;
+    }
+
+    .menu-toggle {
+      width: 56px;
+      height: 56px;
+      position: relative;
+      margin-right: 1.5rem;
+      cursor: pointer;
+    }
+
+    .hamburger {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 56px;
+      height: 56px;
+    }
+
+    .hamburger span {
+      position: absolute;
+      height: 2px;
+      background: #fff;
+      left: 17px;
+    }
+
+    .hamburger span:first-child {
+      top: 23px;
+      width: 22px;
+    }
+
+    .hamburger span:last-child {
+      top: 31px;
+      width: 18px;
+    }
+
+    .logo {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+    }
+
+    main {
+      margin-top: 0;
+    }
+
+    .hero-image-container {
+      position: relative;
+      width: 100%;
+      height: 500px;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-overlay-wrapper {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      z-index: 10;
+    }
+
+    .hero-overlay-title {
+      font-size: 50px;
+      font-weight: 700;
+      margin: 0;
+      text-align: left;
+      color: #fff;
+    }
+
+    .cursor {
+      animation: blink 1s infinite;
+      display: inline-block;
+      color: #fff;
+    }
+
+    @keyframes blink {
+      0%,
+      100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .hero {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 72px;
+    }
+
+    .hero h1 {
+      font-size: 50px;
+      font-weight: 700;
+      margin: 0 0 1rem 0;
+      text-align: left;
+      color: #fff;
+    }
+
+    .hero-subtitle {
+      font-size: 32px;
+      font-weight: 500;
+      margin: 0 0 1rem 0;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      color: #fff;
+    }
+
+    .price-row span {
+      color: #fff;
+    }
+
+    .price-description {
+      font-size: 16px;
+      margin: 0 0 1rem 0;
+      text-align: left;
+      color: #fff;
+    }
+
+    footer {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 1.5rem 0;
+      margin-top: 2rem;
+      border-top: 1px solid #444;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .footer-container>a {
+      display: inline-block;
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      margin-bottom: 1rem;
+    }
+
+    .footer-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 0;
+      margin: 1rem 0;
+    }
+
+    .footer-credits {
+      display: flex;
+      justify-content: space-between;
+      font-size: 15px;
+      flex-wrap: wrap;
+      gap: 1rem;
+      color: #fff;
+    }
+
+    .footer-link {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .mobile-menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #1a1a1a;
+      display: flex;
+      flex-direction: column;
+      z-index: 2000;
+      opacity: 1;
+      visibility: hidden;
+    }
+
+    .mobile-menu-overlay.active {
+      visibility: visible;
+    }
+
+    .mobile-close {
+      position: absolute;
+      top: 8px;
+      left: 1.5rem;
+      width: 56px;
+      height: 56px;
+      cursor: pointer;
+    }
+
+    .mobile-close-x span {
+      position: absolute;
+      height: 2px;
+      background: #fff;
+      width: 20px;
+    }
+
+    .mobile-close-x span:first-child {
+      top: 28px;
+      left: 18px;
+      transform: rotate(45deg);
+    }
+
+    .mobile-close-x span:last-child {
+      top: 28px;
+      left: 18px;
+      transform: rotate(-45deg);
+    }
+
+    .mobile-menu-content {
+      margin-top: 83px;
+      padding-left: 1.5rem;
+    }
+
+    .mobile-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 19px;
+    }
+
+    .mobile-menu-overlay a {
+      display: block;
+      color: #fff;
+      font-size: 16px;
+      text-decoration: none;
+      font-weight: 500;
+      width: fit-content;
+    }
+
+    @media (max-width: 768px) {
+      .header-container {
+        justify-content: flex-start;
+        padding: 0 1.5rem;
+      }
+
+      .menu-toggle {
+        margin-right: 1rem;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .mobile-close {
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      .footer-credits {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.5rem;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .menu-toggle {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header id="header">
+    <div class="header-container">
+      <div class="menu-toggle" id="menuToggle">
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <a href="#top" class="logo">Furtado Visuals</a>
+      <nav>
+        <ul>
+          <li><a href="#top">Início</a></li>
+          <li><a href="#tabela-precos">Tabela de Preços</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="mobile-menu-overlay" id="mobileMenu">
+    <div class="mobile-close" id="closeMenu">
+      <div class="mobile-close-x">
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <div class="mobile-menu-content">
+      <div class="mobile-nav">
+        <a href="#top">Início</a>
+        <a href="#tabela-precos">Tabela de Preços</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="top">
+    <div class="hero-image-container">
+      <img src="img/sagres-06.jpg" class="hero-image" alt="Fotografia de exemplo">
+      <div class="hero-overlay-wrapper">
+        <h1 id="dynamic-title" class="hero-overlay-title"></h1>
+      </div>
+    </div>
+    <section class="hero" id="tabela-precos">
+      <h1>Tabela de Preços</h1>
+      <div class="hero-subtitle">FOTOGRAFIA</div>
+
+      <div class="price-row">
+        <span>PACK até 12 FOTOS</span>
+        <span>45€</span>
+      </div>
+      <p class="price-description">Sem informação</p>
+
+      <div class="price-row">
+        <span>PACK até 25 FOTOS</span>
+        <span>75€</span>
+      </div>
+      <p class="price-description">Sem informação</p>
+
+      <div class="price-row">
+        <span>PACK até 50 FOTOS</span>
+        <span>120€</span>
+      </div>
+      <p class="price-description">Sem informação</p>
+
+      <div class="price-row">
+        <span>FOTO EXTRA PACK</span>
+        <span>5€</span>
+      </div>
+      <p class="price-description">Custo por unidade</p>
+
+      <div class="hero-subtitle">PRODUÇÃO DE VÍDEO</div>
+
+      <div class="price-row">
+        <span>VÍDEO até 60 segundos</span>
+        <span>50€</span>
+      </div>
+      <p class="price-description">Sem informação</p>
+
+      <div class="price-row">
+        <span>VÍDEO até 2 minutos</span>
+        <span>80€</span>
+      </div>
+      <p class="price-description">Sem informação</p>
+
+      <div class="price-row">
+        <span>VÍDEO EXTRA PACK</span>
+        <span>20€</span>
+      </div>
+      <p class="price-description">Custo por 30 segundos</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <a href="https://instagram.com">Instagram</a>
+      <hr class="footer-divider">
+      <div class="footer-credits">
+        <div>© 2025 <a href="#top" class="footer-link">Furtado Visuals</a></div>
+        <div>Todos os direitos reservados.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          const offset = 72;
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+
+        document.getElementById('mobileMenu')?.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      // Fundo cinza aparece com qualquer scroll
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+        header.classList.remove('with-border');
+      }
+
+      // Linha só aparece após a imagem hero
+      if (window.scrollY > 430) {
+        header.classList.add('with-border');
+      } else {
+        header.classList.remove('with-border');
+      }
+    });
+
+    const menuToggle = document.getElementById('menuToggle');
+    const closeMenu = document.getElementById('closeMenu');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+
+    closeMenu.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    mobileMenu.addEventListener('click', (e) => {
+      if (e.target === mobileMenu) {
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const texts = ["Fotografia", "Vídeo", "Drone"];
+      const element = document.getElementById('dynamic-title');
+
+      let textIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+      const typingSpeed = 100;
+      const deletingSpeed = 50;
+      const pauseDelay = 2000;
+
+      function type() {
+        const currentText = texts[textIndex];
+
+        if (!isDeleting) {
+          const displayText = currentText.substring(0, charIndex + 1);
+          element.innerHTML = displayText + '<span class="cursor">|</span>';
+          charIndex++;
+
+          if (charIndex === currentText.length) {
+            isDeleting = true;
+            setTimeout(type, pauseDelay);
+            return;
+          }
+        } else {
+          const displayText = currentText.substring(0, charIndex - 1);
+          element.innerHTML = displayText;
+          charIndex--;
+
+          if (charIndex === 0) {
+            isDeleting = false;
+            textIndex = (textIndex + 1) % texts.length;
+          }
+        }
+
+        const speed = isDeleting ? deletingSpeed : typingSpeed;
+        setTimeout(type, speed);
+      }
+
+      type();
+    });
+  </script>
+</body>
+
+</html>
+
+
+    
+              <script>
+                              
+              </script>
+                        </body>
+                        </html>
+                    
